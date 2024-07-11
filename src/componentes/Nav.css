@@ -45,6 +45,14 @@
     border: 2px solid var(--Blue, #2271D1);
     box-shadow: 0px 0px 7px 4px #2271D1 inset;
     color: #2271D1;
+    box-sizing: border-box;
+    
+}
+
+.home-button:hover{
+    transition: box-shadow 0.5 ease-in-out;
+    outline-offset: -2px;
+    box-shadow: 0px 0px 7px 4px #6BD1FF;
 }
 
 .nuevo-video{
@@ -53,6 +61,10 @@
     border-color: #ffffff;
 }
 
+.nuevo-video:hover{
+    outline-offset: -2px;
+    box-shadow: 0px 0px 7px 4px #6BD1FF;
+}
 
 /* cellphones */
 @media (max-width: 426px) {
