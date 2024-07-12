@@ -1,8 +1,8 @@
 
-import Nav from '../../componentes';
-import Banner from '../../componentes/Banner';
-import Category from '../../componentes/Categories';
-import GlobalStyles from '../../componentes/GlobalStyles';
+import Nav from './componentes';
+import Banner from './componentes/Banner';
+import Category from './componentes/Categories';
+import GlobalStyles from './componentes/GlobalStyles';
 
 // aca ira el formulario
 
