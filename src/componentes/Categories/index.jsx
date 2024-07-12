@@ -1,17 +1,25 @@
+import styled from "styled-components"
 import "./Categories.css"
 
+const StyledCategoryTitle = styled.h1`
+  font-size: 3rem;
+  width: fit-content;
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin-top: 0px;
+  color: #ffffff; 
+  background-color: ${(props) => props.bgColor};
+`;
+
 const Category = (props) => {
-
-const bg = {
-    backgroundColor: props.data.color
-}
-
-
-return <section className="category-content" style={bg}>
-    <h1>{props.data.title}</h1>
-    <div className="videos">
-    </div>
-</section>
-}
+  return (
+    <section className="category-content">
+      <StyledCategoryTitle bgColor={props.data.color}>
+        {props.data.title}
+      </StyledCategoryTitle>
+      <div className="videos"></div>
+    </section>
+  );
+};
 
 export default Category

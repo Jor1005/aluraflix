@@ -1,7 +1,8 @@
-import './App.css';
-import Nav from './componentes';
-import Banner from './componentes/Banner';
-import Category from './componentes/Categories';
+
+import Nav from '../../componentes';
+import Banner from '../../componentes/Banner';
+import Category from '../../componentes/Categories';
+import GlobalStyles from '../../componentes/GlobalStyles';
 
 // aca ira el formulario
 
@@ -28,6 +29,7 @@ const categories = [
 function App() {
   return (
     <div>
+      <GlobalStyles/>
       <Nav/>
       <Banner/>
       <div>
