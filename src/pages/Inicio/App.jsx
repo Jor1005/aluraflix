@@ -4,10 +4,7 @@ import Banner from '../../componentes/Banner';
 import Category from '../../componentes/Categories';
 import GlobalStyles from '../../componentes/GlobalStyles';
 
-
 // aca ira el formulario
-
-
 
 const categories = [
 

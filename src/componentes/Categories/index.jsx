@@ -8,15 +8,18 @@ const StyledCategoryTitle = styled.h1`
   border-radius: 15px;
   margin-top: 0px;
   color: #ffffff; 
-  background-color: ${(props) => props.bgColor};
+  background-color: ${(props) => props.color};
 `;
 
 const Category = (props) => {
+  
+const {title} = props.data
+
   return (
     <section className="category-content">
-      <StyledCategoryTitle bgColor={props.data.color}>
-        {props.data.title}
-      </StyledCategoryTitle>
+      <StyledCategoryTitle color={props.data.color}>
+          {title}
+      </StyledCategoryTitle>  
       <div className="videos"></div>
     </section>
   );
