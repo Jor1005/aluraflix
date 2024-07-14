@@ -29,6 +29,15 @@ const NewVideoForm = () => {
     });
   };
 
+  const handleReset = () => {
+    setTitle('');
+    setCategory('');
+    setImage('');
+    setVideo('');
+    setDescription('');
+    setErrorMessage('');
+  };
+
   return (
     <div>
       <GlobalStyles />
@@ -43,8 +52,8 @@ const NewVideoForm = () => {
         <form onSubmit={handleSubmit} className={styles.form}>
           <h3>Crear Tarjeta</h3>
           <section className={styles.allform}>
-            <div className={styles.tyc}>
-            <label>hola</label>
+            <div className={styles.titimg}>
+            <label>Título</label>
               <input
                 type="text"
                 placeholder="Ingrese el título"
@@ -52,7 +61,30 @@ const NewVideoForm = () => {
                 onChange={(e) => setTitle(e.target.value)}
                 className={styles.input}
               />
-              <select
+              <label>Imagen</label>
+              <input
+                type="url"
+                placeholder="Ingrese el enlace de la imagen"
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
+                className={styles.input}
+              />
+              <p className={styles.errorMessage}>{errorMessage}</p>
+              <label>Descripción</label>
+              <textarea 
+                placeholder="¿De qué se trata el video?"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                className={styles.textarea}
+              />
+              <div className={styles.buttons}>
+              <button type="submit" style={{ borderColor: '#2271D1' }} className={styles.buttonSave}>Guardar</button>
+              <button type="reset" onClick={handleReset}  className={styles.buttonReset}>Limpiar</button>
+              </div>
+            </div>
+            <div className={styles.catvid}>
+            <label>Categoría</label>
+            <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 className={styles.select}
@@ -62,32 +94,18 @@ const NewVideoForm = () => {
                 <option value="backend">Backend</option>
                 <option value="innovation">Innovation</option>
               </select>
-            </div>
-            <div className={styles.urls}>
-              <input
-                type="url"
-                placeholder="Ingrese el enlace de la imagen"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-                className={styles.input}
-              />
-              <p className={styles.errorMessage}>{errorMessage}</p>
+              <label>Video</label>
               <input 
                 type="url"
                 placeholder="Ingrese el enlace del Video"
                 value={video}
                 onChange={(e) => setVideo(e.target.value)}
-                className={styles.input}
+                className={styles.video}
               />
               </div>
-              <textarea 
-                placeholder="¿De qué se trata el video?"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                className={styles.textarea}
-              />
+              
             
-          <button type="submit" className={styles.button}>Submit</button>
+          
           </section>
         </form>
         </section>
