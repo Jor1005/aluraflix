@@ -8,34 +8,25 @@ import videos from '../../data/db.json'
 
 // aca ira el formulario
 
-const categories = [
-
-  {
-    title:"FRONTEND",
-    color:"#6BD1FF"
-  },
-  {
-    title:"BACKEND",
-    color:"#00C86F"
-  },
-  {
-    title:"INOVACIÓN Y GESTIÓN",
-    color:"#FFBA05"
-  },
-]
-
-  const [videos, setvideos] = useState([])
-
-  useEffect(()=>{
-    fetch("https://my-json-server.typicode.com/Jor1005/aluraflix/videos")
-    .then(Response=> Response.json())
-    .then(data=>{
-    setvideos(data)
-  })
-  },[])
-  
-
 function App() {
+
+  const categories = [
+
+    {
+      title:"FRONTEND",
+      color:"#6BD1FF"
+    },
+    {
+      title:"BACKEND",
+      color:"#00C86F"
+    },
+    {
+      title:"INOVACIÓN Y GESTIÓN",
+      color:"#FFBA05"
+    },
+  ]
+
+ 
   return (
     <div>
       <GlobalStyles/>
@@ -48,6 +39,7 @@ function App() {
          key={category.title}/>
          )
        }
+
       </div>
     </div>
   );
