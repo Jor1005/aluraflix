@@ -90,7 +90,7 @@ const Textarea = styled.textarea`
 
 const Buttons = styled.div`
   display: flex;
-  gap: 20px
+  gap: 20px;
 `
 
 const ButtonSubmit = styled.button`
