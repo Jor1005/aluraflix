@@ -54,19 +54,19 @@ const DeleteButton = styled.button`
 `;
 
 const VideoCard = ({ video, onEdit, onDelete, color }) => {
-  const { image, video: videoUrl } = video;
-
-  return (
-    <StyledCard color={color}>
-      <CardLink href={videoUrl} target="_blank" rel="noopener noreferrer">
-        <CardImage src={image} alt="Video thumbnail" />
-      </CardLink>
-      <ButtonContainer color={color}>
-        <EditButton onClick={() => onEdit(video)}>Editar</EditButton>
-        <DeleteButton onClick={() => onDelete(video.id)}>Eliminar</DeleteButton>
-      </ButtonContainer>
-    </StyledCard>
-  );
-};
+    const { image, video: videoUrl } = video;
+  
+    return (
+      <StyledCard color={color}>
+        <CardLink href={videoUrl} target="_blank" rel="noopener noreferrer">
+          <CardImage src={image} alt="Video thumbnail" />
+        </CardLink>
+        <ButtonContainer color={color}>
+          <EditButton onClick={() => onEdit(video)}>Editar</EditButton>  
+          <DeleteButton onClick={() => onDelete(video.id)}>Eliminar</DeleteButton>
+        </ButtonContainer>
+      </StyledCard>
+    );
+  };
 
 export default VideoCard;

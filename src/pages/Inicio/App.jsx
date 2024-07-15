@@ -7,6 +7,7 @@ import GlobalStyles from '../../componentes/GlobalStyles';
 import videosData from '../../data/db.json'; 
 import Footer from '../../componentes/Footer';
 import ModalConfirm from '../../componentes/Modal/ModalConfirm';
+import ModalEditVideo from '../../componentes/Modal/ModalEditVideo'; 
 
 function App() {
   const categories = [
@@ -25,27 +26,51 @@ function App() {
   ];
 
   const [videos, setVideos] = useState([]);
-  const [showModal, setShowModal] = useState(false); // Estado para mostrar/ocultar la modal
-  const [videoToDelete, setVideoToDelete] = useState(null); // Estado para almacenar el ID del video a eliminar
+  const [showModal, setShowModal] = useState(false);
+  const [videoToDelete, setVideoToDelete] = useState(null); 
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [videoToEdit, setVideoToEdit] = useState(null);
 
   useEffect(() => {
     setVideos(videosData.videos);
   }, []);
 
   const handleDeleteVideo = (id) => {
-    setShowModal(true); // Mostrar la modal de confirmación
-    setVideoToDelete(id); // Almacenar el ID del video a eliminar
+    setShowModal(true); 
+    setVideoToDelete(id); 
   };
 
   const confirmDeleteVideo = () => {
-    setVideos((prevVideos) => prevVideos.filter(video => video.id !== videoToDelete)); // Filtrar videos para eliminar el seleccionado
-    setShowModal(false); // Ocultar la modal de confirmación
-    setVideoToDelete(null); // Reiniciar el estado del video a eliminar
+    setVideos((prevVideos) => prevVideos.filter(video => video.id !== videoToDelete));
+    setShowModal(false);
+    setVideoToDelete(null); 
   };
 
   const closeModal = () => {
-    setShowModal(false); // Simplemente ocultar la modal sin efectuar ninguna acción
-    setVideoToDelete(null); // Reiniciar el estado del video a eliminar
+    setShowModal(false);
+    setVideoToDelete(null); 
+  };
+
+  const handleEditVideo = (video) => {
+    setShowEditModal(true);
+    setVideoToEdit(video);
+  };
+
+  const handleSaveVideo = (updatedVideo) => {
+    const updatedVideos = videos.map(video => {
+      if (video.id === updatedVideo.id) {
+        return updatedVideo;
+      }
+      return video;
+    });
+    setVideos(updatedVideos);
+    setShowEditModal(false);
+    setVideoToEdit(null);
+  };
+
+  const closeEditModal = () => {
+    setShowEditModal(false);
+    setVideoToEdit(null);
   };
 
   return (
@@ -60,10 +85,12 @@ function App() {
             key={category.title}
             videos={videos.filter(video => video.category.toUpperCase() === category.title.toUpperCase())}
             onDelete={handleDeleteVideo}
+            onEdit={handleEditVideo}  // Asegúrate de pasar el método onEdit aquí
           />
         ))}
       </div>
       <Footer />
+  
       <ModalConfirm 
         show={showModal} 
         title="Confirmación" 
@@ -72,8 +99,14 @@ function App() {
       >
         ¿Estás seguro de que deseas eliminar este video?
       </ModalConfirm>
+  
+      <ModalEditVideo 
+        show={showEditModal}
+        video={videoToEdit}
+        onSave={handleSaveVideo}
+        onClose={closeEditModal}
+      />
     </div>
   );
 }
-
 export default App;

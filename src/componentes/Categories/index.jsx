@@ -16,12 +16,8 @@ const StyledCategoryTitle = styled.h1`
   text-align: center;
 `;
 
-const Category = ({ data, videos, onDelete }) => {
+const Category = ({ data, videos, onDelete, onEdit }) => {  // Asegúrate de que onEdit esté en las props
   const { title, color } = data;
-
-  const handleEdit = (video) => {
-    console.log('Editar video:', video);
-  };
 
   return (
     <section className={styles.categoryContent}>
@@ -32,7 +28,7 @@ const Category = ({ data, videos, onDelete }) => {
             key={video.id} 
             video={video} 
             color={color}
-            onEdit={handleEdit} 
+            onEdit={onEdit}  // Pasa onEdit directamente aquí
             onDelete={onDelete} 
           />
         ))}
