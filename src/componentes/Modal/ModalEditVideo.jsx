@@ -43,8 +43,8 @@ const Title = styled.h2`
 
 const CloseButton = styled.button`
   position: absolute;
-  top: 30px;
-  right: 40px;
+  top: 10px;
+  right: 30px;
   background: none;
   border: none;
   cursor: pointer;

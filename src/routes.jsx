@@ -7,7 +7,7 @@ function AppRoutes() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/nuevo-video" element={<NewVideoForm />} />
+        <Route path="/nuevo-video" element={<NewVideoForm />  } />
       </Routes>
     </BrowserRouter>
   )
