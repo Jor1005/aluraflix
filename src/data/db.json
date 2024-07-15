@@ -43,7 +43,7 @@
     {
         "id": 6,
         "title": "Simplificando tu código en Java. Conoce los enum",
-        "category": "INNOVACIÓN Y GESTION",
+        "category": "BACKEND",
         "image": "https://i.ytimg.com/vi/EoPvlE85XAQ/maxresdefault.jpg",
         "video": "https://www.youtube.com/watch?v=EoPvlE85XAQ",
         "description": "En este Alura+ la instructora Génesys Rondón nos enseña a simplificar esta tarea usando un tipo de dato especial llamado enum."
@@ -63,6 +63,14 @@
         "image": "https://i.ytimg.com/vi/YhR7Zp8NUzE/maxresdefault.jpg",
         "video": "https://www.youtube.com/watch?v=YhR7Zp8NUzE",
         "description": "¿Sabes cuáles son las 7 más buscadas por las empresas?"
-    }   
+    },
+    {
+      "id": 9,
+       "title": "¿Qué son las metodologias ágiles?",
+       "category": "INNOVACIÓN Y GESTION",
+       "image": "https://i.ytimg.com/vi/6N3OkLCfK-0/maxresdefault.jpg",
+       "video": "https://www.youtube.com/watch?v=6N3OkLCfK-0",
+       "description": "¿Sabes cuáles son las 7 más buscadas por las empresas?"
+   }      
   ]
 }

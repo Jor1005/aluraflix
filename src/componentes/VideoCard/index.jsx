@@ -2,14 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledCard = styled.div`
+  border: 2px solid ${(props) => props.color};
+  box-shadow: 0 4px 8px ${(props) => props.color};
+  border-radius: 15px;
   width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin:10px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
+const CardLink = styled.a`
+  text-decoration: none;
 `;
 
 const CardImage = styled.img`
@@ -19,13 +28,15 @@ const CardImage = styled.img`
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-top: 12px;
+  border-top: solid ${(props) => props.color};
+  justify-content: space-around;
+  background-color: black;
+  padding: 3px;
 `;
 
 const EditButton = styled.button`
   padding: 8px 16px;
-  background-color: #4CAF50;
+  background-color: transparent;
   color: white;
   border: none;
   border-radius: 4px;
@@ -34,20 +45,22 @@ const EditButton = styled.button`
 
 const DeleteButton = styled.button`
   padding: 8px 16px;
-  background-color: #f44336;
+  background-color: transparent;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 `;
 
-const VideoCard = ({ video, onEdit, onDelete }) => {
-  const { image } = video;
+const VideoCard = ({ video, onEdit, onDelete, color }) => {
+  const { image, video: videoUrl } = video;
 
   return (
-    <StyledCard>
-      <CardImage src={image} alt="Video thumbnail" />
-      <ButtonContainer>
+    <StyledCard color={color}>
+      <CardLink href={videoUrl} target="_blank" rel="noopener noreferrer">
+        <CardImage src={image} alt="Video thumbnail" />
+      </CardLink>
+      <ButtonContainer color={color}>
         <EditButton onClick={() => onEdit(video)}>Editar</EditButton>
         <DeleteButton onClick={() => onDelete(video.id)}>Eliminar</DeleteButton>
       </ButtonContainer>
