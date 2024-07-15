@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Nav from '../../componentes';
+import Nav from '../../componentes/Nav';
 import styles from './NuevoVideo.module.css';
 import GlobalStyles from '../../componentes/GlobalStyles';
 

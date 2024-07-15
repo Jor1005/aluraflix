@@ -1,5 +1,5 @@
 import './index.css'
-import Nav from '../../componentes'
+import Nav from '../../componentes/Nav'
 import Banner from '../../componentes/Banner';
 import Category from '../../componentes/Categories';
 import GlobalStyles from '../../componentes/GlobalStyles';
