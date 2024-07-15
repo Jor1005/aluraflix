@@ -1,8 +1,7 @@
-// ModalEditVideo.js
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import close from './cancelar.png'
 
+import { useState, useEffect } from "react";
+import styled from "styled-components";
+import close from "./cancelar.png"
 
 const ModalContainer = styled.div`
   position: fixed;
@@ -26,18 +25,19 @@ const ModalContent = styled.div`
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   max-width: 500px; 
-  width: 90%; /* Asegurarse de que el modal use el 90% del ancho disponible */
+  width: 100%; /* Asegurarse de que el modal use el 90% del ancho disponible */
   position: relative;
   border: solid 5px #6BD1FF;
+  height: 90%;
 `;
 
 const Title = styled.h2`
   color: #2271D1;
-  font-size: 2em;
-  margin-bottom: 20px;
+  font-size: 1.5em;
   text-align: start;
   padding-left: 40px;
   font-weight: bold;
+  margin:0;
 `;
 
 
@@ -62,33 +62,45 @@ const Form = styled.form`
   width: 80%; 
   padding-left: 40px;
   
+  
 `;
 
 const Label = styled.label`
-  margin-bottom: 5px;
   color: #ffffff;
+  margin-bottom: 5px;
 `;
+
+const Select = styled.select`
+  background-color: transparent;
+  padding: 12px;
+  border: solid 2px #6BD1FF;
+  border-radius: 10px;
+  width: 107%;
+  margin-bottom: 5px;
+`
 
 const Input = styled.input`
   background-color: transparent;
   padding: 12px;
-  margin-bottom: 15px;
   border: solid 2px #6BD1FF;
   border-radius: 10px;
-  width: 100%; /* Asegurarse de que el input use el 100% del ancho disponible */
+  width: 100%; 
+  margin-bottom: 5px; 
 `;
 
 const Textarea = styled.textarea`
   background-color: transparent;
   border: solid 2px #6BD1FF;
   padding: 8px;
-  margin-bottom: 15px;
   border-radius: 10px;
   resize: vertical;
-  width: 100%; /* Asegurarse de que el textarea use el 100% del ancho disponible */
+  width: 100%; 
+  height: 50%;
+  margin-bottom: 5px;
 `;
 
 const Buttons = styled.div`
+margin-top: 20px;
   display: flex;
   gap: 20px;
 `
@@ -116,7 +128,8 @@ const ButtonReset = styled.button`
 `;
 
 
-const ModalEditVideo = ({ show, video, onSave, onClose }) => {
+
+const ModalEditVideo = ({ show, video, onSave, onClose, categorias }) => {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
   const [image, setImage] = useState('');
@@ -149,9 +162,8 @@ const ModalEditVideo = ({ show, video, onSave, onClose }) => {
     setTitle('');
     setCategory('');
     setImage('');
-    setVideo('');
+    setVideoUrl('');
     setDescription('');
-    setErrorMessage('');
   };
 
   return (
@@ -159,7 +171,7 @@ const ModalEditVideo = ({ show, video, onSave, onClose }) => {
       <ModalContent>
         <CloseButton onClick={onClose}>
           <img src={close} alt="" />
-          </CloseButton>
+        </CloseButton>
         <Title>EDITAR CARD</Title>
         <Form onSubmit={handleSubmit}>
           <Label htmlFor="title">Título:</Label>
@@ -171,12 +183,17 @@ const ModalEditVideo = ({ show, video, onSave, onClose }) => {
           />
 
           <Label htmlFor="category">Categoría:</Label>
-          <Input 
-            type="text" 
-            id="category" 
-            value={category} 
-            onChange={(e) => setCategory(e.target.value)} 
-          />
+          <Select
+      id="category"
+      value={category}
+      onChange={(e) => setCategory(e.target.value)}
+      className="select"
+    >
+      <option value="" disabled defaultValue="" hidden>Seleccionar equipo</option>
+      {categorias.map((cat, index) => (
+        <option key={index} value={cat.title}>{cat.title}</option>
+      ))}
+    </Select>
 
           <Label htmlFor="image">Imagen:</Label>
           <Input 
@@ -200,14 +217,16 @@ const ModalEditVideo = ({ show, video, onSave, onClose }) => {
             value={description} 
             onChange={(e) => setDescription(e.target.value)} 
           />
-        <Buttons>
-          <ButtonSubmit type="submit" style={{ borderColor: '#2271D1' }} >Guardar</ButtonSubmit>
-          <ButtonReset type="reset" onClick={handleReset}  >Limpiar</ButtonReset>
-        </Buttons>
+
+          <Buttons>
+            <ButtonSubmit type="submit" style={{ borderColor: '#2271D1' }}>Guardar</ButtonSubmit>
+            <ButtonReset type="reset" onClick={handleReset}>Limpiar</ButtonReset>
+          </Buttons>
         </Form>
       </ModalContent>
     </ModalContainer>
   );
 };
 
-export default ModalEditVideo;
+
+export default ModalEditVideo

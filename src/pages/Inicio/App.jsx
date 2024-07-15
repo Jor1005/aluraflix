@@ -1,3 +1,4 @@
+// App.js
 import React, { useState, useEffect } from 'react';
 import './index.css';
 import Nav from '../../componentes/Nav';
@@ -85,7 +86,7 @@ function App() {
             key={category.title}
             videos={videos.filter(video => video.category.toUpperCase() === category.title.toUpperCase())}
             onDelete={handleDeleteVideo}
-            onEdit={handleEditVideo}  // Asegúrate de pasar el método onEdit aquí
+            onEdit={handleEditVideo}  
           />
         ))}
       </div>
@@ -105,6 +106,7 @@ function App() {
         video={videoToEdit}
         onSave={handleSaveVideo}
         onClose={closeEditModal}
+        categorias={categories} // Agregué esta línea para pasar las categorías como prop
       />
     </div>
   );
