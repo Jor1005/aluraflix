@@ -4,7 +4,8 @@ import Nav from '../../componentes/Nav';
 import Banner from '../../componentes/Banner';
 import Category from '../../componentes/Categories';
 import GlobalStyles from '../../componentes/GlobalStyles';
-import videosData from '../../data/db.json'; // Importar el archivo JSON con los datos
+import videosData from '../../data/db.json'; 
+import Footer from '../../componentes/Footer';
 
 // aca ira el formulario
 
@@ -45,6 +46,7 @@ function App() {
           />
         ))}
       </div>
+        <Footer/>
     </div>
   );
 }

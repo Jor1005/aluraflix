@@ -1,0 +1,19 @@
+.Footer{
+    background-color: black;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: Fixed;
+    height: Fixed;
+    top: 5px;
+    left: 0.5px;
+    box-sizing: border-box;
+    border-top: 5px solid var(--Blue, #2271D1);
+    margin-top: 60px;
+}
+
+.Footer img{
+    padding-top: 15px;
+}
