@@ -3,6 +3,7 @@ import Nav from '../../componentes';
 import styles from './NuevoVideo.module.css';
 import GlobalStyles from '../../componentes/GlobalStyles';
 
+
 const NewVideoForm = () => {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
@@ -41,8 +42,7 @@ const NewVideoForm = () => {
   return (
     <div>
       <GlobalStyles />
-      
-      <Nav />
+      <Nav/>
       <section className={styles.container}>
       <div className={styles.titles}>
         <h1 className={styles.h1}>NUEVO VIDEO</h1>

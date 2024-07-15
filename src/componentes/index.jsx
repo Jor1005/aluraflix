@@ -1,8 +1,11 @@
 import "./Nav.css"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 function Nav() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const paginavideo = location.pathname === "/nuevo-video";
 
   return (
     <header className="Nav">
@@ -10,19 +13,21 @@ function Nav() {
         <img src="./img/logo.png" alt="logo" />
       </div>
       <div className="nav-buttons">
-        <button className="home-button"
-        onClick={() => navigate("/")}
-        
-        >HOME</button>
         <button
-          className="nuevo-video"
+          className={paginavideo ? "nuevo-video-button" : "home-button"}
+          onClick={() => navigate("/")}
+        >
+          HOME
+        </button>
+        <button
+          className={paginavideo ? "home-button" : "nuevo-video-button"}
           onClick={() => navigate("/nuevo-video")}
         >
           NUEVO VIDEO
         </button>
       </div>
     </header>
-  )
+  );
 }
 
-export default Nav
+export default Nav;
