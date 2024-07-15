@@ -1,3 +1,4 @@
+// Category.js
 import React from 'react';
 import styled from 'styled-components';
 import VideoCard from '../VideoCard'; 
@@ -15,21 +16,16 @@ const StyledCategoryTitle = styled.h1`
   text-align: center;
 `;
 
-const Category = ({ data, videos }) => {
+const Category = ({ data, videos, onDelete }) => {
   const { title, color } = data;
 
   const handleEdit = (video) => {
     console.log('Editar video:', video);
   };
 
-  const handleDelete = (id) => {
-    console.log('Eliminar video con ID:', id);
-  };
-
   return (
     <section className={styles.categoryContent}>
-      <StyledCategoryTitle color={color}>{title}
-      </StyledCategoryTitle>
+      <StyledCategoryTitle color={color}>{title}</StyledCategoryTitle>
       <div className={styles.videos}>
         {videos.map((video) => (
           <VideoCard 
@@ -37,7 +33,7 @@ const Category = ({ data, videos }) => {
             video={video} 
             color={color}
             onEdit={handleEdit} 
-            onDelete={handleDelete} 
+            onDelete={onDelete} 
           />
         ))}
       </div>

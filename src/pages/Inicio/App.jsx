@@ -6,8 +6,7 @@ import Category from '../../componentes/Categories';
 import GlobalStyles from '../../componentes/GlobalStyles';
 import videosData from '../../data/db.json'; 
 import Footer from '../../componentes/Footer';
-
-// aca ira el formulario
+import ModalConfirm from '../../componentes/Modal/ModalConfirm';
 
 function App() {
   const categories = [
@@ -26,11 +25,28 @@ function App() {
   ];
 
   const [videos, setVideos] = useState([]);
+  const [showModal, setShowModal] = useState(false); // Estado para mostrar/ocultar la modal
+  const [videoToDelete, setVideoToDelete] = useState(null); // Estado para almacenar el ID del video a eliminar
 
   useEffect(() => {
-   
     setVideos(videosData.videos);
   }, []);
+
+  const handleDeleteVideo = (id) => {
+    setShowModal(true); // Mostrar la modal de confirmación
+    setVideoToDelete(id); // Almacenar el ID del video a eliminar
+  };
+
+  const confirmDeleteVideo = () => {
+    setVideos((prevVideos) => prevVideos.filter(video => video.id !== videoToDelete)); // Filtrar videos para eliminar el seleccionado
+    setShowModal(false); // Ocultar la modal de confirmación
+    setVideoToDelete(null); // Reiniciar el estado del video a eliminar
+  };
+
+  const closeModal = () => {
+    setShowModal(false); // Simplemente ocultar la modal sin efectuar ninguna acción
+    setVideoToDelete(null); // Reiniciar el estado del video a eliminar
+  };
 
   return (
     <div>
@@ -42,11 +58,20 @@ function App() {
           <Category 
             data={category} 
             key={category.title}
-            videos={videos.filter(video => video.category.toUpperCase() === category.title.toUpperCase())} 
+            videos={videos.filter(video => video.category.toUpperCase() === category.title.toUpperCase())}
+            onDelete={handleDeleteVideo}
           />
         ))}
       </div>
-        <Footer/>
+      <Footer />
+      <ModalConfirm 
+        show={showModal} 
+        title="Confirmación" 
+        onConfirm={confirmDeleteVideo} 
+        onClose={closeModal}
+      >
+        ¿Estás seguro de que deseas eliminar este video?
+      </ModalConfirm>
     </div>
   );
 }
