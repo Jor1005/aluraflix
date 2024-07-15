@@ -1,5 +1,7 @@
-import styled from "styled-components"
-import "./Categories.css"
+import React from 'react';
+import styled from 'styled-components';
+import VideoCard from '../VideoCard'; 
+import styles from './Categories.module.css';
 
 const StyledCategoryTitle = styled.h1`
   font-size: 3rem;
@@ -7,22 +9,36 @@ const StyledCategoryTitle = styled.h1`
   padding: 10px 15px;
   border-radius: 15px;
   margin-top: 0px;
-  color: #ffffff; 
+  color: #ffffff;
   background-color: ${(props) => props.color};
 `;
 
-const Category = (props) => {
-  
-const {title} = props.data
+const Category = ({ data, videos }) => {
+  const { title, color } = data;
+
+  const handleEdit = (video) => {
+    console.log('Editar video:', video);
+  };
+
+  const handleDelete = (id) => {
+    console.log('Eliminar video con ID:', id);
+  };
 
   return (
-    <section className="category-content">
-      <StyledCategoryTitle color={props.data.color}>
-          {title}
-      </StyledCategoryTitle>  
-      <div className="videos"></div>
+    <section className={styles.categoryContent}>
+      <StyledCategoryTitle color={color}>{title}</StyledCategoryTitle>
+      <div className={styles.videos}>
+        {videos.map((video) => (
+          <VideoCard 
+            key={video.id} 
+            video={video} 
+            onEdit={handleEdit} 
+            onDelete={handleDelete} 
+          />
+        ))}
+      </div>
     </section>
   );
 };
 
-export default Category
+export default Category;

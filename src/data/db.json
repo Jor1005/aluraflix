@@ -3,7 +3,7 @@
     { 
       "id": 1,
       "title": "Cuando usar let,var y const",
-      "category": "Frontend",
+      "category": "FRONTEND",
       "image": "https://i.ytimg.com/vi/PztCEdIJITY/maxresdefault.jpg",
       "video": "https://www.youtube.com/watch?v=PztCEdIJITY",
       "description": "Cuando y como usar let, var y const en javaScript"
@@ -11,7 +11,7 @@
     {
       "id": 2,
       "title": "¿Qué es javascript?",
-      "category": "Frontend",
+      "category": "FRONTEND",
       "image": "https://i.ytimg.com/vi/GJfOSoaXk4s/mqdefault.jpg",
       "video": "https://www.youtube.com/watch?v=GJfOSoaXk4s&t=433s",
       "description": "¿Qué es JavaScript y como se hizo este lenguaje?"
@@ -19,7 +19,7 @@
     {
       "id": 3,
       "title": "Equipo front end",
-      "category": "Frontend",
+      "category": "FRONTEND",
       "image": "https://i.ytimg.com/vi/rpvrLaBQwgg/maxresdefault.jpg",
       "video": "https://www.youtube.com/watch?v=rpvrLaBQwgg",
       "description": "Las últimas tendencias en innovación tecnológica."
@@ -27,7 +27,7 @@
     {
         "id": 4,
         "title": "Spring Framework.",
-        "category": "Backend",
+        "category": "BACKEND",
         "image": "https://i.ytimg.com/vi/t-iqt1b2qqk/maxresdefault.jpg",
         "video": "https://www.youtube.com/watch?v=t-iqt1b2qqk",
         "description": "Las últimas tendencias en innovación tecnológica."
@@ -35,7 +35,7 @@
     {
         "id": 5,
         "title": "Qué es SQL y NOSQL",
-        "category": "Backend",
+        "category": "BACKEND",
         "image": "https://i.ytimg.com/vi/cLLKVd5CNLc/maxresdefault.jpg",
         "video": "https://www.youtube.com/watch?v=cLLKVd5CNLc",
         "description": "Las últimas tendencias en innovación tecnológica."
@@ -43,7 +43,7 @@
     {
         "id": 6,
         "title": "Simplificando tu código en Java. Conoce los enum",
-        "category": "Innovación y Gestión",
+        "category": "INNOVACIÓN Y GESTION",
         "image": "https://i.ytimg.com/vi/EoPvlE85XAQ/maxresdefault.jpg",
         "video": "https://www.youtube.com/watch?v=EoPvlE85XAQ",
         "description": "En este Alura+ la instructora Génesys Rondón nos enseña a simplificar esta tarea usando un tipo de dato especial llamado enum."
@@ -51,7 +51,7 @@
     {
         "id": 7,
         "title": "Que son las softs skills",
-        "category": "Innovación y Gestión",
+        "category": "INNOVACIÓN Y GESTION",
         "image": "https://i.ytimg.com/vi/vhwspfvI52k/maxresdefault.jpg",
         "video": "https://www.youtube.com/watch?v=vhwspfvI52k&t=189s",
         "description": "En este video de Alura Tips, Pri Stuani nos habla de las habilidades más buscadas por las empresas en sus profesionales y cómo las Soft Skills te ayudan en el día a día."
@@ -59,7 +59,7 @@
     {
        "id": 8,
         "title": "7 Soft Skills más deseadas por las empresas",
-        "category": "Innovación y Gestión",
+        "category": "INNOVACIÓN Y GESTION",
         "image": "https://i.ytimg.com/vi/YhR7Zp8NUzE/maxresdefault.jpg",
         "video": "https://www.youtube.com/watch?v=YhR7Zp8NUzE",
         "description": "¿Sabes cuáles son las 7 más buscadas por las empresas?"
