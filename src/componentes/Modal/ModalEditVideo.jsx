@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import close from "./cancelar.png"
+import CategorySelect from "../CategoryList";
 
 const ModalContainer = styled.div`
   position: fixed;

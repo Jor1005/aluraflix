@@ -18,7 +18,7 @@ export const createVideo = async (video) => {
   }
 };
 
-const NewVideoForm = ({ categorias }) => {
+const NewVideoForm = () => {
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
