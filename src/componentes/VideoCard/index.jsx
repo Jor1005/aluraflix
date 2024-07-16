@@ -7,7 +7,7 @@ const StyledCard = styled.div`
   box-shadow: 0 4px 8px ${(props) => props.color};
   border-radius: 15px;
   width: 300px;
-  margin:10px;
+  margin: 10px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -54,19 +54,19 @@ const DeleteButton = styled.button`
 `;
 
 const VideoCard = ({ video, onEdit, onDelete, color }) => {
-    const { image, video: videoUrl } = video;
-  
-    return (
-      <StyledCard color={color}>
-        <CardLink href={videoUrl} target="_blank" rel="noopener noreferrer">
-          <CardImage src={image} alt="Video thumbnail" />
-        </CardLink>
-        <ButtonContainer color={color}>
-          <EditButton onClick={() => onEdit(video)}>Editar</EditButton>  
-          <DeleteButton onClick={() => onDelete(video.id)}>Eliminar</DeleteButton>
-        </ButtonContainer>
-      </StyledCard>
-    );
-  };
+  const { image, url, } = video;
+
+  return (
+    <StyledCard color={color}>
+      <CardLink href={url} target="_blank" rel="noopener noreferrer">
+        <CardImage src={image} alt="Video thumbnail" />
+      </CardLink>
+      <ButtonContainer color={color}>
+        <EditButton onClick={() => onEdit(video)}>Editar</EditButton>  
+        <DeleteButton onClick={() => onDelete(video.id)}>Eliminar</DeleteButton>
+      </ButtonContainer>
+    </StyledCard>
+  );
+};
 
 export default VideoCard;

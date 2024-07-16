@@ -16,20 +16,18 @@ const StyledCategoryTitle = styled.h1`
   text-align: center;
 `;
 
-const Category = ({ data, videos, onDelete, onEdit }) => {  // Asegúrate de que onEdit esté en las props
-  const { title, color } = data;
-
+const Category = ({ data, videos, onDelete, onEdit }) => {
   return (
-    <section className={styles.categoryContent}>
-      <StyledCategoryTitle color={color}>{title}</StyledCategoryTitle>
-      <div className={styles.videos}>
+    <section>
+      <h2 style={{ color: data.color }}>{data.title}</h2>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {videos.map((video) => (
           <VideoCard 
             key={video.id} 
             video={video} 
-            color={color}
-            onEdit={onEdit}  // Pasa onEdit directamente aquí
             onDelete={onDelete} 
+            onEdit={onEdit} 
+            color={data.color} 
           />
         ))}
       </div>

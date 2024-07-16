@@ -36,12 +36,14 @@ const NewVideoForm = () => {
       description,
       url,
       category,
+      image,
     };
     try {
       const newVideo = await createVideo(videoData);
       console.log('Video creado:', newVideo);
       setSuccessMessage('Video creado con éxito!');
       setErrorMessage('');
+      onVideoCreated(newVideo);
     } catch (error) {
       console.error(error);
       setErrorMessage('Error al crear el video');
