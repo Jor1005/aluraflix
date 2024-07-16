@@ -3,7 +3,7 @@ import Nav from '../../componentes/Nav';
 import styles from './NuevoVideo.module.css';
 import GlobalStyles from '../../componentes/GlobalStyles';
 import axios from 'axios';
-
+import CategorySelect from '../../componentes/CategoryList';
 const api = axios.create({
   baseURL: 'https://my-json-server.typicode.com/Jor1005/aluraflix/videos',
 });
@@ -105,18 +105,11 @@ const NewVideoForm = ({ categorias }) => {
             </div>
             <div className={styles.catvid}>
               <label htmlFor="category">Categoría</label>
-              <select 
-              id="category"
+              <CategorySelect 
               value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              className={styles.select}>
-              <option value="" disabled defaultValue="" hidden>Seleccione una categoría</option>
-                {categorias && categorias.map((cat, index) => (
-              <option key={index} value={cat.title}>
-                {cat.title}
-              </option>
-                ))}
-              </select>
+              onChange={setCategory}
+              className={styles.select}
+              />
               <label>Video</label>
               <input
                 type="url"
