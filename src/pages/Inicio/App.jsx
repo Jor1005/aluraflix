@@ -5,7 +5,7 @@ import Nav from '../../componentes/Nav';
 import Banner from '../../componentes/Banner';
 import Category from '../../componentes/Categories';
 import GlobalStyles from '../../componentes/GlobalStyles';
-import videosData from '../../data/db.json'; 
+import videosData from '../../../db.json'; 
 import Footer from '../../componentes/Footer';
 import ModalConfirm from '../../componentes/Modal/ModalConfirm';
 import ModalEditVideo from '../../componentes/Modal/ModalEditVideo'; 

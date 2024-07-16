@@ -4,6 +4,7 @@ import styles from './NuevoVideo.module.css';
 import GlobalStyles from '../../componentes/GlobalStyles';
 import axios from 'axios';
 import CategorySelect from '../../componentes/CategoryList';
+import Footer from '../../componentes/Footer';
 const api = axios.create({
   baseURL: 'https://my-json-server.typicode.com/Jor1005/aluraflix/videos',
 });
@@ -126,6 +127,7 @@ const NewVideoForm = () => {
         {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
         {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
       </section>
+      <Footer></Footer>
     </div>
   );
 };
