@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from 'react';
 import './index.css';
 import Nav from '../../componentes/Nav';
@@ -10,7 +9,6 @@ import Footer from '../../componentes/Footer';
 import ModalConfirm from '../../componentes/Modal/ModalConfirm';
 import ModalEditVideo from '../../componentes/Modal/ModalEditVideo'; 
 import NewVideoForm from '../NuevoVideo';
-
 
 function App() {
   const categories = [
@@ -76,6 +74,8 @@ function App() {
     setVideoToEdit(null);
   };
 
+  
+
   return (
     <div>
       <GlobalStyles />
@@ -92,8 +92,6 @@ function App() {
           />
         ))}
       </div>
-      
-
       <Footer />
   
       <ModalConfirm 
@@ -115,4 +113,5 @@ function App() {
     </div>
   );
 }
+
 export default App;

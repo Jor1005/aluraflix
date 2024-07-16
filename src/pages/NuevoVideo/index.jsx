@@ -5,48 +5,49 @@ import GlobalStyles from '../../componentes/GlobalStyles';
 import axios from 'axios';
 import CategorySelect from '../../componentes/CategoryList';
 import Footer from '../../componentes/Footer';
+
 const api = axios.create({
   baseURL: 'https://my-json-server.typicode.com/Jor1005/aluraflix/videos',
 });
 
-export const createVideo = async (video) => {
+async function createVideo(title, description, category, image) {
   try {
-    const response = await api.post('/', video);
+    const videoData = { title, description, category, image };
+    console.log("Datos del video a enviar:", videoData); // Añadir esto para ver los datos
+    const response = await api.post('/', videoData, {
+      headers: { 'Content-type': 'application/json' }
+    });
     return response.data;
   } catch (error) {
-    console.error(error);
-    return null;
+    console.log('Error al crear video', error);
+    throw error;
   }
-};
+}
 
-const NewVideoForm = () => {
 
+const NewVideoForm = ({ onAddVideo }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [image, setImage] = useState('');
-  const [url, setUrl] = useState('');
   const [category, setCategory] = useState('');
-  const [video, setVideo] = useState(''); 
+  const [image, setImage] = useState('');
+  const [video, setVideo] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState(''); 
+  const [successMessage, setSuccessMessage] = useState('');
+
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const videoData = {
-      title,
-      description,
-      url,
-      category,
-      image,
-    };
     try {
-      const newVideo = await createVideo(videoData);
-      console.log('Video creado:', newVideo);
+      const newVideo = await createVideo(title, description, category, image);
+      onAddVideo(newVideo);
       setSuccessMessage('Video creado con éxito!');
       setErrorMessage('');
-      onVideoCreated(newVideo);
+      setTitle('');
+      setDescription('');
+      setCategory('');
+      setImage('');
     } catch (error) {
-      console.error(error);
       setErrorMessage('Error al crear el video');
       setSuccessMessage('');
     }
@@ -56,8 +57,6 @@ const NewVideoForm = () => {
     setTitle('');
     setCategory('');
     setImage('');
-    setUrl('');
-    setVideo('');
     setDescription('');
     setErrorMessage('');
     setSuccessMessage('');
@@ -109,12 +108,11 @@ const NewVideoForm = () => {
             <div className={styles.catvid}>
               <label htmlFor="category">Categoría</label>
               <CategorySelect 
-              value={category}
-              onChange={setCategory}
-              className={styles.select}
+                value={category}
+                onChange={setCategory}
+                className={styles.select}
               />
-              <label>Video</label>
-              <input
+              <input 
                 type="url"
                 placeholder="Ingrese el enlace del Video"
                 value={video}
@@ -122,12 +120,13 @@ const NewVideoForm = () => {
                 className={styles.video}
               />
             </div>
+
           </section>
         </form>
         {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
         {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
       </section>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };
