@@ -17,3 +17,13 @@
 .Footer img{
     padding-top: 15px;
 }
+
+
+
+
+@media (max-width: 426px){
+    
+.Footer{
+    display: none;  
+  }
+}

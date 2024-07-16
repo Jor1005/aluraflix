@@ -9,17 +9,18 @@ const StyledCategoryTitle = styled.h1`
   width: fit-content;
   padding: 10px 15px;
   border-radius: 15px;
-  margin-top: 0px;
+  margin-top: 10px;
   color: #ffffff;
   background-color: ${(props) => props.color};
   width: 400px;
-  text-align: center;
+  text-align:center;
+  
 `;
 
 const Category = ({ data, videos, onDelete, onEdit }) => {
   return (
     <section>
-      <h2 style={{ color: data.color }}>{data.title}</h2>
+      <StyledCategoryTitle color={data.color}>{data.title}</StyledCategoryTitle>
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {videos.map((video) => (
           <VideoCard 

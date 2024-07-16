@@ -145,3 +145,25 @@ label {
   margin-bottom: 10px;
   font-weight: bold
 }
+
+
+@media (max-width: 426px) {
+
+  .titles{
+    text-align: center;
+  }
+
+}
+
+
+.form{
+  gap: 50px;
+  margin: 0;
+  padding: 0;
+  width: 80%;
+}
+
+
+.input, .select, {
+}
+

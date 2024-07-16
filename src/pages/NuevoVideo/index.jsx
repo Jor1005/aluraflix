@@ -126,7 +126,7 @@ const NewVideoForm = ({ onAddVideo }) => {
         {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
         {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
       </section>
-      <Footer />
+      <Footer className={styles.Footer}/>
     </div>
   );
 };
